@@ -1,0 +1,335 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+
+
+.container_calc {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+    width: 60%;
+    margin: auto;
+}
+
+.resultado-calculo {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#tipoPainel, #fretePago {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+#tipoPainel label, #fretePago label {
+    display: grid;
+    grid-template-columns: 1.5rem auto; /* Configura a estrutura de grid: botão de rádio + texto */
+    align-items: center; /* Alinha verticalmente os itens */
+    gap: 0.5rem; /* Espaçamento entre o botão e o texto */
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+#tipoPainelinput[type="radio"], #fretePago input[type="radio"] {
+    accent-color: #007bff; /* Cor personalizada para o botão de rádio */
+    transition: transform 0.2s ease-in-out;
+}
+
+#tipoPainel input[type="radio"]:checked, #fretePago input[type="radio"]:checked {
+    transform: scale(1.2); /* Aumenta o tamanho do botão de rádio quando selecionado */
+}
+
+#tipoPainel label:hover, #fretePago label:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+#tipoPainel  input[type="radio"]:checked + label, #fretePago input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: #007bff; /* Cor do texto quando o botão de rádio está selecionado */
+}
+  
+
+label {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+select, input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.resultado-calculo p {
+    margin: 8px 0;
+    font-size: 1.1em;
+}
+
+
+
+
+
+
+
+p {
+    text-align: justify;
+}
+
+figure {
+    max-width: 100%;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+}
+
+figure img {
+    max-width: 100%;
+    width: 500px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+
+footer {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25); 
+}
+
+.capa_superior img {   
+    width: 100%;
+    height: 130px;
+    min-height: 110px;
+    object-fit: cover;
+    object-position: bottom;
+    margin-top: 30px
+}
+
+.sub-titulo {
+    color: rgba(115, 115, 115, 0.715);
+}
+
+
+.conteudo-escrito-site {
+    width: 80%;
+    margin: auto;
+}
+
+
+.comentarios_pequenos {
+    font-size: x-small;
+}
+
+.centralizar_botao {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    background-color: #ffbd593d;
+    padding: 20px;
+
+}
+
+/* Estilos gerais */
+.texto_e_imagem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Estilo da imagem e legenda */
+.texto_e_imagem figure {
+    margin-left: 20px; /* Espaçamento entre o texto e a imagem */
+    max-width: 40%; /* Ajuste conforme necessário */
+}
+
+.texto_e_imagem img {
+    width: 100%; /* Para garantir que a imagem se adapte à div */
+    height: auto;
+}
+
+.texto_e_imagem p {
+    max-width: 55%; /* Para garantir que o texto não ocupe toda a largura */
+}
+
+
+
+.input-container {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+}
+
+.resultado-calculo {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+}
+
+#resultado p {
+    padding: 0.5rem;
+}
+
+/* Destaque nos valores */
+#resultado p strong {
+    font-weight: bold;
+    color: #007bff; /* Cor para os valores destacados */
+  }
+  
+  /* Adicionando um toque de cor ao fundo de cada linha */
+  #resultado p:nth-child(even) {
+    background-color: #f0f8ff;
+    border-radius: 4px;
+  }
+
+.loader {
+    height: 50px;
+    aspect-ratio: 2;
+    border: 10px solid #ffffff;
+    box-sizing: border-box;
+    background: 
+      radial-gradient(farthest-side, gray  98%,#0000) left/20px 20px,
+      radial-gradient(farthest-side,gray  98%,#0000) left/20px 20px,
+      radial-gradient(farthest-side,gray  98%,#0000) center/20px 20px,
+      radial-gradient(farthest-side,gray  98%,#0000) right/20px 20px,
+      #ffffff ;
+    background-repeat: no-repeat;
+    filter: blur(4px) contrast(10);
+    animation: l14 3s infinite;
+    margin: auto;
+  }
+  @keyframes l14 {
+    100%  {background-position:right,left,center,right}
+  }
+
+
+
+
+
+
+
+
+
+/* Estilos para telas menores (como mobile) */
+@media (max-width: 768px) {
+    .texto_e_imagem {   
+        display: block; /* Altera o layout para bloco (vertical) */
+        text-align: center;
+    }
+
+    .texto_e_imagem p {
+        max-width: 100%;
+    }
+
+    .texto_e_imagem figure {
+        margin: 20px auto 0; /* Centraliza a imagem e adiciona espaçamento */
+        max-width: 100%;
+    }
+}
+
+
+
+
+/* Media ****************************************************************************************************************8*/
+
+/* XX-Large devices */
+@media (max-width: 1400px) {
+    .container_calc {
+        width: 50%;
+    }
+
+}
+
+/* X-Large devices */
+@media (max-width: 1200px) {
+    .container_calc {
+        width: 60%;
+    }
+
+}
+
+/* Large devices */
+@media (max-width: 992px) {
+    .container_calc {
+        width: 70%;
+    }
+
+}
+
+/* Medium devices */
+@media (max-width: 768px) {
+    .container_calc {
+        width: 80%;
+    }
+
+    .capa_superior img {
+        width: 100%;
+    }
+    .resultado-calculo p{
+        font-size: 1em;
+    }
+    
+
+}
+
+/* Small devices */
+@media (max-width: 576px) {
+    .container_calc {
+        width: 90%;
+    }
+
+    .resultado-calculo p{
+        display: grid;
+    }
+
+@media (max-width: 425px) {
+    #tipoPainel, #fretePago {
+        display: block;
+        align-items: center;
+    }
+}
+
+

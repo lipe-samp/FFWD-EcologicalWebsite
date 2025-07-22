@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+p {
+    text-align: justify;
+}
+
+figure {
+    max-width: 100%;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+}
+
+figure img {
+    max-width: 100%;
+    width: 500px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+
+footer {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25); 
+}
+
+.capa_superior img {   
+    width: 100%;
+    height: 130px;
+    min-height: 110px;
+    object-fit: cover;
+    object-position: bottom;
+    margin-top: 30px
+}
+
+.sub-titulo {
+    color: rgba(115, 115, 115, 0.715);
+}
+
+
+.conteudo-escrito-site {
+    width: 80%;
+    margin: auto;
+}
+
+
+.comentarios_pequenos {
+    font-size: x-small;
+}
+
+.centralizar_botao {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    background-color: #ffbd593d;
+    padding: 20px;
+
+}
+
+/* Estilos gerais */
+.texto_e_imagem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Estilo da imagem e legenda */
+.texto_e_imagem figure {
+    margin-left: 20px; /* Espaçamento entre o texto e a imagem */
+    max-width: 40%; /* Ajuste conforme necessário */
+}
+
+.texto_e_imagem img {
+    width: 100%; /* Para garantir que a imagem se adapte à div */
+    height: auto;
+}
+
+.texto_e_imagem p {
+    max-width: 55%; /* Para garantir que o texto não ocupe toda a largura */
+}
+
+/* Estilos para telas menores (como mobile) */
+@media (max-width: 768px) {
+    .texto_e_imagem {
+        display: block; /* Altera o layout para bloco (vertical) */
+        text-align: center;
+    }
+
+    .texto_e_imagem p {
+        max-width: 100%;
+    }
+
+    .texto_e_imagem figure {
+        margin: 20px auto 0; /* Centraliza a imagem e adiciona espaçamento */
+        max-width: 100%;
+    }
+}
+
+
+
+
+/* Media ****************************************************************************************************************8*/
+
+/* XX-Large devices */
+@media (max-width: 1400px) {}
+
+/* X-Large devices */
+@media (max-width: 1200px) {}
+
+/* Large devices */
+@media (max-width: 992px) {}
+
+/* Medium devices */
+@media (max-width: 768px) {}
+
+/* Small devices */
+@media (max-width: 576px) {}

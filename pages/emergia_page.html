@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergia</title>
+  <link rel="shortcut icon" type="imagex/png" href="img/_iconLogo.png">
+  <link rel="stylesheet" href="css_other_pages/style_page_emergia.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+
+<body>
+  <header class="navbar fixed-top navbar-light bg-light navegacao">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link"><img src="../img/logo_atualizado.png" alt="Logo da empresa FFWD" height="30px" style="cursor: pointer;"
+              role="button" onclick="scrollToTop()"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./informative_page.html">Informativo</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./emergia_page.html">Emergia<span class="sr-only">(Página atual)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="../pages/calc_page.html">Calculadora CO₂</a>
+              <a class="dropdown-item" href="../pages/curiosidade_page.html">Curiosidades</a>
+              <a class="dropdown-item" href="../pages/equipe_page.html">Equipe</a>
+              <a class="dropdown-item" href="../pages/contact_page.html">Contato</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </li class="nav-item">
+    <a class="nav-link" class="dropdown-menu" style="font-size: 16px;" href="../index.html"><img src="img/FFWD.png" alt="Logo da empresa FFWD"
+        width="140px"></a>
+    </li>
+  </header>
+  
+  <main>
+    <br><br>
+
+    <div class="capa_superior">
+      <img src="img/capa-emergia.png" class="" alt="...">
+    </div><br>
+
+    <div class="conteudo-escrito-site">
+      <h1>Calculadora de Energia Solar</h1>
+      <br>
+    </div>
+
+    <div class="container_calc">
+      <div class="input-container">
+        <!-- Inputs existentes -->
+        <label for="potencia">Escolha a potência do painel (W):</label>
+        <select id="potencia">
+          <option value="305">305</option>
+          <option value="310">310</option>
+          <option value="320">320</option>
+          <option value="330">330</option>
+          <option value="335">335</option>
+          <option value="340">340</option>
+          <option value="345">345</option>
+          <option value="350">350</option>
+          <option value="355">355</option>
+          <option value="405">405</option>
+          <option value="435">435</option>
+          <option value="450">450</option>
+          <option value="460">460</option>
+          <option value="500">500</option>
+          <option value="550">550</option>
+          <option value="590">590</option>
+        </select>
+        
+        <!-- Inputs existentes continuam -->
+        <label>Escolha o tipo de painel:</label>
+        <div id="tipoPainel">
+          <label><input type="radio" name="tipoPainel" value="Monocristalino" checked> Monocristalino</label>
+          <label><input type="radio" name="tipoPainel" value="Policristalino"> Policristalino</label>
+        </div>
+
+        <!-- Novos inputs para número de funcionários e dias -->
+        <label for="numFuncionarios">Quantos funcionários foram responsáveis pela instalação?</label>
+        <input type="number" id="numFuncionarios" min="1" max="5" required>
+            
+        <label for="diasInstalacao">Quantos dias (8 horas por dia) foram necessários para a instalação?</label>
+        <input type="number" id="diasInstalacao" min="1" max="5" required>
+    
+        <label for="area">Escolha o tamanho do painel (m²):</label>
+        <select id="area">
+          <option value="2">2m²</option>
+          <option value="4">4m²</option>
+        </select>
+    
+        <label for="valorPainel">Quanto você pagou no painel solar?</label>
+        <input type="number" id="valorPainel" step="any" min="0.01" required>
+    
+        <!-- Inputs sobre o frete -->
+        <label>Você pagou frete para a entrega?</label>
+        <div id="fretePago">
+          <label><input type="radio" name="fretePago" value="não" onchange="alterarCamposFrete()" checked>Não</label>
+          <label><input type="radio" name="fretePago" value="sim" onchange="alterarCamposFrete()">Sim</label>
+        </div>
+    
+        <div id="campoFrete" style="display: none;">
+          <label for="valorFrete">Qual o valor do frete?</label>
+          <input type="number" id="valorFrete" step="any" min="0.01">
+        </div>
+    
+        <!-- Inputs sobre a distância -->
+        <label for="distanciaKM">Qual a distância do fabricante até sua residência? (km):</label>
+        <input type="number" id="distanciaKM" step="any" min="0.01" required>
+    
+        <!-- Inputs sobre o preço da instalação -->
+        <label for="precoInstalacao">Quanto você pagou pela instalação do painel?</label>
+        <input type="number" id="precoInstalacao" step="any" min="0.01" required>
+    
+      </div>
+    
+      <br>
+    
+      <div class="input-container">
+        <label for="clima">Escolha o clima atual:</label>
+        <select id="clima">
+          <option value="Ensolarado">Ensolarado</option>
+          <option value="Chuvoso">Chuvoso</option>
+          <option value="Neblina">Neblina</option>
+        </select>
+    
+        <label for="tempo">Informe o tempo de exposição ao sol (horas):</label>
+        <input type="number" id="tempo" step="any" min="0" max="12" required>
+        <label for="dias">Quantidade de dias:</label>
+        <input type="number" id="dias" step="any" min="0" required>
+      </div>
+    
+      <br><br>
+    
+      <div class="input-container">
+        <button class=" btn btn-success" onclick="calcularEnergia()">Calcular</button>
+        <div id="resultado" class="resultado-calculo">
+          <div class="loader"></div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+      function alterarCamposFrete() {
+    var fretePago = document.querySelector('input[name="fretePago"]:checked');
+    var campoFrete = document.getElementById("campoFrete");
+
+    if (fretePago) {
+        if (fretePago.value === "sim") {
+            campoFrete.style.display = "block";
+        } else {
+            campoFrete.style.display = "none";
+        }
+    }
+}
+
+let potenciaEscolhida,
+    tipoPainel,
+    eficiencia,
+    climaEscolhido,
+    irradiancia,
+    areaEscolhida,
+    tempo,
+    dias,
+    tempoTotal,
+    energiaSolarIncidente,
+    energiaEletricaGeradaJoules,
+    energiaEletricaGeradaKWh,
+    numFuncionarios,
+    diasInstalacao,
+    valorPainel,
+    fretePago,
+    valorFrete,
+    distanciaKM,
+    precoInstalacao,
+    litrosDiesel,
+    custoDiesel,
+    energiaHumanaKWh,
+    energiaHumanaJoules,
+    energiaCaminhaoEletricoKWh,
+    custoEnergiaCaminhaoEletrico,
+    custoTotalComDiesel,
+    custoTotalComEnergiaCaminhaoEletrico,
+    custoTotalPainel,
+    precoPorKWh,
+    energiaFaltaCompensar,
+    mensagemCompensacao;
+
+function calcularEnergia() {
+    potenciaEscolhida = parseInt(document.getElementById("potencia").value);
+    tipoPainel = document.querySelector('input[name="tipoPainel"]:checked');
+    areaEscolhida = parseFloat(document.getElementById("area").value);
+    climaEscolhido = document.getElementById("clima").value;
+    tempo = parseFloat(document.getElementById("tempo").value);
+    dias = parseInt(document.getElementById("dias").value);
+    
+    numFuncionarios = parseInt(document.getElementById("numFuncionarios").value);
+    diasInstalacao = parseInt(document.getElementById("diasInstalacao").value);
+    valorPainel = parseFloat(document.getElementById("valorPainel").value);
+    
+    fretePago = document.querySelector('input[name="fretePago"]:checked');
+    valorFrete = fretePago && fretePago.value === "sim" ? parseFloat(document.getElementById("valorFrete").value) : 0;
+    distanciaKM = parseFloat(document.getElementById("distanciaKM").value);
+    precoInstalacao = parseFloat(document.getElementById("precoInstalacao").value);
+
+    // Verificações para inputs
+    if (!tipoPainel) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Selecione um tipo de painel.' });
+        return;
+    }
+    tipoPainel = tipoPainel.value;
+
+    // Validações
+    if (isNaN(numFuncionarios) || numFuncionarios < 1 || numFuncionarios > 5) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Número de funcionários inválido!' });
+        return;
+    }
+
+    if (isNaN(diasInstalacao) || diasInstalacao < 1 || diasInstalacao > 5) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Número de dias de instalação inválido!' });
+        return;
+    }
+
+    if (isNaN(tempo) || tempo <= 0 || tempo > 12) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Insira um tempo válido.' });
+        return;
+    }
+
+    if (isNaN(dias) || dias <= 0) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Insira um número de dias válido!' });
+        return;
+    }
+
+    if (isNaN(valorPainel) || valorPainel <= 0) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Informe um valor válido para o painel.' });
+        return;
+    }
+
+    if (fretePago && fretePago.value === "sim" && (isNaN(valorFrete) || valorFrete <= 0)) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Informe um valor válido para o frete.' });
+        return;
+    }
+
+    if (isNaN(distanciaKM) || distanciaKM <= 0) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Informe uma distância válida.' });
+        return;
+    }
+
+    if (isNaN(precoInstalacao) || precoInstalacao <= 0) {
+        Swal.fire({ icon: 'error', title: 'Erro!', text: 'Informe um valor válido para a instalação.' });
+        return;
+    }
+
+    // Eficiência e irradiância
+    eficiencia = tipoPainel === "Monocristalino" ? 0.20 : 0.15;
+    irradiancia = climaEscolhido === "Ensolarado" ? 1000 : climaEscolhido === "Chuvoso" ? 200 : 300;
+
+    tempoTotal = tempo * dias;
+    
+    energiaSolarIncidente = irradiancia * areaEscolhida * tempoTotal * 3600;
+    energiaEletricaGeradaJoules = energiaSolarIncidente * eficiencia;
+    energiaEletricaGeradaKWh = energiaEletricaGeradaJoules / 3600000;
+
+    // Caminhão disel
+    kmPorLitro = 2.5;
+    precoLitroDiesel = 6.26;
+    litrosDiesel = distanciaKM / kmPorLitro;
+    custoDiesel = litrosDiesel * precoLitroDiesel;
+
+    //Energia humana
+    energiaHumanaKWh = numFuncionarios * diasInstalacao * 8 * 0.075;
+    energiaHumanaJoules = energiaHumanaKWh * 3600000;
+
+    // Caminhão elétrico
+    precoPorKWh = 0.65
+    energiaCaminhaoEletricoKWh = distanciaKM * 1.1;
+    custoEnergiaCaminhaoEletrico = energiaCaminhaoEletricoKWh * precoPorKWh;
+    energiaCaminhaoEletricoJoules = energiaCaminhaoEletricoKWh * 3600000;
+
+    // Custo total com entrega
+    custoTotalPainel = valorPainel + valorFrete + precoInstalacao;
+    custoTotalComDiesel = custoTotalPainel + custoDiesel;
+    custoTotalComEnergiaCaminhaoEletrico = custoTotalPainel + custoEnergiaCaminhaoEletrico;
+
+    // Compensação Energética
+    energiaGastaTotal = energiaHumanaJoules + energiaCaminhaoEletricoJoules;
+    energiaFaltaCompensar = energiaGastaTotal - energiaEletricaGeradaJoules;
+    
+
+    // Atualiza a interface
+    const resultadoDiv = document.getElementById("resultado");
+    resultadoDiv.innerHTML = `
+        <h3>Dados Fornecidos</h3>
+        <p><strong>Potência do painel:</strong> ${potenciaEscolhida} W</p>
+        <p><strong>Eficiência do painel (${tipoPainel}):</strong> ${(eficiencia * 100).toFixed(2)}%</p>
+        <p><strong>Clima:</strong> ${climaEscolhido}</p>
+           <p><strong>Irradiância:</strong> ${irradiancia} W/m²</p>
+        <p><strong>Área do painel:</strong> ${areaEscolhida} m²</p>
+        <p><strong>Exposição ao sol:</strong> ${tempo} horas/dia</p>
+        <p><strong>Número de dias:</strong> ${dias}</p>
+        <p><strong>Distância do fabricante:</strong> ${distanciaKM.toFixed(2)} km</p>
+        <br>
+        <h3>Gastos</h3>
+        <p><strong>Valor do painel:</strong> R$ ${valorPainel.toFixed(2)}</p>
+        <p><strong>Frete:</strong> ${fretePago && fretePago.value === "sim" ? `R$ ${valorFrete.toFixed(2)}` : "Não houve frete"}</p>
+        <p><strong>Instalação:</strong> R$ ${precoInstalacao.toFixed(2)}</p>
+        <p><strong>Total:</strong> R$ ${custoTotalPainel.toFixed(2)}</p>
+        <br>
+        <h3>Compensação Energética</h3>
+        <p><strong>Energia Gasta Total:</strong> ${energiaGastaTotal.toFixed(2)} J</p>
+        <p><strong>Energia Elétrica Gerada:</strong> ${energiaEletricaGeradaJoules.toFixed(2)} J</p>
+        ${energiaFaltaCompensar > 0 ? 
+          `<p><strong class="font-weight-bold text-danger">Energia que falta compensar:</strong> ${energiaFaltaCompensar.toFixed(2)} J</p>` :
+          `<p><strong class="font-weight-bold text-success">Energia incidente da compensação:</strong> ${Math.abs(energiaFaltaCompensar).toFixed(2)} J</p>`
+        }
+        <br>
+        <h3>Entrega por caminhão Diesel</h3>
+        <p><strong>Litros necessários:</strong> ${litrosDiesel.toFixed(2)} L</p>
+        <p><strong>Valor com Diesel:</strong> R$ ${custoDiesel.toFixed(2)}</p>
+        <br>
+        <h3>Entrega por caminhão elétrico</h3>
+        <p><strong>Energia gasta:</strong> ${energiaCaminhaoEletricoKWh.toFixed(2)} kWh</p>
+        <p><strong>Gasto com energia:</strong> R$ ${custoEnergiaCaminhaoEletrico.toFixed(2)}</p>
+        <br>
+        <h3>Energia</h3>
+        <p><strong>Solar incidente:</strong> ${energiaSolarIncidente.toFixed(2)} J</p>
+        <p><strong>Elétrica gerada:</strong> ${energiaEletricaGeradaJoules.toFixed(2)} J</p>
+        <p><strong>Em kWh:</strong> ${energiaEletricaGeradaKWh.toFixed(2)} kWh</p>
+        <p><strong>Humana gerada:</strong> ${energiaHumanaJoules.toFixed(2)} J</p>
+        <p><strong>Em kWh:</strong> ${energiaHumanaKWh.toFixed(2)} kWh</p>
+        <br>
+
+        <button class="btn btn-success" onclick="gerarPDF()">Gerar PDF</button>
+    `;
+
+    Swal.fire({ icon: 'success', title: 'Cálculo realizado!', text: 'Os resultados foram gerados com sucesso.' });
+}
+
+  
+      async function gerarPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        let y = 10;
+        const pageHeight = doc.internal.pageSize.height;
+
+        function addText(text, fontSize = 12, lineSpacing = 8, bold = false) {
+            doc.setFontSize(fontSize);
+            doc.setFont(bold ? "helvetica" : "helvetica", bold ? "bold" : "normal");
+            const lines = doc.splitTextToSize(text, 190);
+            for (let line of lines) {
+                if (y > pageHeight - 10) {
+                    doc.addPage();
+                    y = 10;
+                }
+                doc.text(line, 10, y);
+                y += lineSpacing;
+            }
+        }
+
+        addText('\n1. Dados da Simulação', 16, 10, true);
+        addText(`\nPotência do painel: ${potenciaEscolhida} W`);
+        addText(`Tipo do painel: ${tipoPainel}`);
+        addText(`Eficiência: ${(eficiencia * 100).toFixed(2)} %`);
+        addText(`Área do painel: ${areaEscolhida} m²`);
+        addText(`Clima selecionado: ${climaEscolhido}`);
+        addText(`Irradiância solar: ${irradiancia} W/m²`);
+        addText(`Tempo de exposição ao sol: ${tempo} hora(s) por dia`);
+        addText(`Número de dias simulados: ${dias} dia(s)`);
+        addText(`Distância da fábrica até a residência: ${distanciaKM} km`);
+
+        addText('\n2. Energia Solar e Elétrica', 16, 10, true);
+        addText('\nO que é energia solar incidente?', 16, 8, true);
+        addText('Energia solar incidente é a quantidade de luz do sol que atinge um painel solar. Pense no painel como uma "esponja" que absorve essa luz.');
+
+        addText('\nComo é calculada?', 16, 8, true);
+        addText('Usamos a fórmula:');
+        addText('Energia Solar Incidente = Irradiância × Área do Painel × Tempo em segundos');
+
+        addText(`\n- Irradiância: \"Força\" da luz solar. Em dias (${climaEscolhido}), usamos ${irradiancia} W/m².`);
+        addText(`- Área do painel: Quanto maior a área, mais luz é captada. Aqui, ${areaEscolhida} m².`);
+        addText(`- Tempo total (em horas): ${dias} dia × ${tempo} hora/dia = ${tempoTotal} horas.`);  
+
+        addText('\nCálculo:', 16, 8, true);
+        addText(`${irradiancia} W/m² × ${areaEscolhida} m² × ${tempoTotal} x 3600s horas = ${energiaSolarIncidente} J`);
+
+        addText('\nO que é energia elétrica gerada?', 16, 8, true);
+        addText('É a quantidade de eletricidade que o painel produz a partir da energia solar recebida.');
+
+        addText('\nComo é calculada?', 16, 8, true);
+        addText('Multiplicamos Irradiância em kW (dividimos por 1000) × Área do Painel × Tempo em em horas x eficiência do painel');
+        addText(`Energia Gerada = (${irradiancia} W/m² / 1000) kWm² × ${areaEscolhida} × ${tempoTotal} × ${eficiencia} = ${energiaEletricaGeradaKWh.toFixed(2)} kWh`);
+
+        addText('\nConversão para J', 16, 8, true);
+        addText('Como 1 kWh = 3.600.000 J:');
+        addText(`${energiaEletricaGeradaKWh.toFixed(2)} × 3.600.000 = ${energiaEletricaGeradaJoules} J`);
+
+        addText('\n3. Comparativo de Entrega', 16, 10, true);
+        addText('\nEntrega com Caminhão a Diesel', 16, 8, true);
+        addText('- Eficiência do caminhão: 2,5 km/L');
+        addText(`- Distância percorrida: ${distanciaKM} km`);
+        addText('\nComo é calculado o custo do diesel?', 16, 8, true);
+        addText(`Litros de diesel = Distância ÷ Eficiência = ${distanciaKM} ÷ 2,5 = ${litrosDiesel} L`);
+        addText(`Custo do diesel = ${litrosDiesel} × R$ 6,26 = R$ ${custoDiesel.toFixed(2)}`);
+
+        addText('\nEntrega com Caminhão Elétrico', 16, 8, true);
+        addText('- Consumo por km: 1,1 kWh/km');
+        addText(`- Distância percorrida: ${distanciaKM} km`);
+        addText('\nComo é calculado?', 16, 8, true);
+        addText(`Energia consumida = ${distanciaKM} × 1,1 = ${energiaCaminhaoEletricoKWh.toFixed(2)} kWh`);
+        addText(`Custo com energia = ${energiaEletricaGeradaKWh.toFixed(2)} × R$ 0,65 = R$ ${custoEnergiaCaminhaoEletrico.toFixed(2)}`);
+
+        addText('\n4. Energia Humana (Instalação)', 16, 10, true);
+        addText('\nComo calcular a energia humana consumida?', 16, 8, true);
+        addText('Energia (kWh) = Funcionários × Dias × Horas/dia × Consumo/hora');
+        addText('- Funcionários: numFuncionarios');
+        addText('- Dias: diasInstalacao');
+        addText('- Horas/dia: 8h');
+        addText('- Consumo por hora: 0,075 kWh');
+        addText('\nCálculo:', 16, 8, true);
+        addText(`${numFuncionarios} × ${diasInstalacao} × 8h × 0,075kWh = ${energiaHumanaKWh.toFixed(2)} kWh`);
+        addText('\nConversão para Joules:', 16, 8, true);
+        addText(`${energiaHumanaKWh.toFixed(2)} × 3.600.000 = ${energiaHumanaJoules} J`);
+
+        addText('\n5. Custos Totais', 16, 10, true);
+        addText(`\nPainel Solar: R$ ${valorPainel.toFixed(2)}`);
+        addText(`Frete (Simulado): R$ ${valorFrete.toFixed(2)}`);
+        addText(`Instalação: R$ ${precoInstalacao.toFixed(2)}`);
+        addText(`Entrega com Diesel: R$ ${custoDiesel.toFixed(2)}`);
+        addText(`Entrega com Caminhão Elétrico: R$ ${custoEnergiaCaminhaoEletrico.toFixed(2)}`);
+        addText(`Custo Total (com diesel): R$ ${custoTotalComDiesel.toFixed(2)}`);
+        addText(`Custo Total (com caminhão elétrico): R$ ${custoTotalComEnergiaCaminhaoEletrico.toFixed(2)}`);
+
+        addText('\n6. Compensação Energética', 16, 10, true);
+        addText(`\nEnergia Gasta Total: ${energiaGastaTotal.toFixed(2)} J`);
+        addText(`Energia Elétrica Gerada: ${energiaEletricaGeradaJoules.toFixed(2)} J`);
+        if (energiaFaltaCompensar > 0) {
+            addText(`Energia que falta compensar: ${energiaFaltaCompensar.toFixed(2)} J`);
+        } else {
+            addText(`Energia incidente da compensação: ${Math.abs(energiaFaltaCompensar).toFixed(2)} J`);
+        };
+
+        addText('\n7. Resumo da Simulação', 16, 10, true);
+        addText(`\nEnergia Solar Incidente: ${energiaSolarIncidente.toFixed(2)} J`);
+        addText(`Energia Elétrica Gerada em J: ${energiaEletricaGeradaJoules.toFixed(2)} J`);
+        addText(`Energia Gerada em kWh: ${energiaEletricaGeradaKWh.toFixed(2)} kWh`);
+        addText(`Energia Humana Utilizada: ${energiaHumanaJoules.toFixed(2)} J (${energiaHumanaKWh} kWh)`);
+
+        addText('\n8. Considerações Finais', 16, 10, true);
+        addText('\nA simulação mostra como a energia solar pode ser convertida de forma eficiente em eletricidade com apenas uma hora de sol. Ao mesmo tempo, a comparação entre transporte tradicional e sustentável, bem como a análise dos custos e consumo humano, evidencia os benefícios econômicos e ecológicos da energia solar e de tecnologias limpas.');
+
+        doc.save("relatório.pdf");
+      }
+  </script>
+
+
+      <br><br>
+      <div class="conteudo-escrito-site">
+          <h2>Conceito de Emergia</h2>
+          <span class="sub-titulo">
+              <h4>Entenda sua definição</h4>
+          </span><br>
+      
+          <div class="texto_e_imagem">
+              <p>A energia solar é uma das fontes de energia mais promissoras da atualidade. Ela é gerada a partir da luz do sol e pode ser convertida em eletricidade ou calor. Com o avanço da tecnologia, os painéis solares se tornaram mais eficientes e acessíveis, permitindo que mais pessoas aproveitem essa energia renovável. Além disso, o uso da energia solar reduz a dependência de combustíveis fósseis, contribuindo diretamente para a diminuição das emissões de gases do efeito estufa.
+                  <br><br>
+                  Os sistemas de energia solar têm se mostrado eficazes em diversas aplicações, desde residências até grandes instalações industriais. Com a crescente conscientização sobre as mudanças climáticas, a energia solar está se tornando uma escolha popular e uma solução viável para a crise energética global.
+              </p>
+              <figure>
+                  <img class="imagens-site" src="./img/michael-fortsch-unsplash.jpg" alt="Painel Solar" />
+                  <figcaption>Foto: Unsplash/Michael Förtsch</figcaption>
+              </figure>
+          </div>
+      
+          <div class="texto_e_imagem">
+              <p>O funcionamento dos painéis solares é baseado no efeito fotovoltaico, onde a luz solar incide sobre células fotovoltaicas, gerando eletricidade. Estes sistemas podem ser conectados à rede elétrica ou utilizáveis de forma autônoma, tornando-se ideais para regiões remotas e comunidades não atendidas pela rede elétrica convencional. Essa versatilidade é um dos principais atrativos da energia solar.
+                  <br><br>
+                  Além disso, a energia solar não gera poluição durante a sua utilização, ao contrário dos combustíveis fósseis. Sua adoção em larga escala pode levar a uma redução significativa nos custos globais de energia e ajudar países a alcançarem suas metas de sustentabilidade e redução de emissões.
+              </p>
+              <figure>
+                  <img class="imagens-site" src="./img/daniele-la-rosa-messina-unsplash.jpg" alt="Energia Solar" />
+                  <figcaption>Foto: Unsplash/Daniele La Rosa Messina.</figcaption>
+              </figure>
+          </div>
+      
+          <h2>Curiosidades e Características da Calculadora de Energia Solar</h2>
+          <span class="sub-titulo">
+              <h4>Informações Interessantes</h4>
+          </span><br>
+          
+          <p>A calculadora de energia solar ajuda os usuários a entenderem o potencial de geração de energia de seus sistemas fotovoltaicos. Aqui estão algumas características importantes:</p>
+      
+          <ul>
+              <li><strong>Eficiência Variável:</strong> Os diferentes tipos de painéis solares têm variações de eficiência, com painéis monocristalinos geralmente sendo mais eficientes que os policristalinos, devido à sua fabricação um pouco mais complexa.</li>
+              <li><strong>Impacto Climático:</strong> A produção de energia solar pode variar conforme as condições climáticas, sendo mais eficiente em dias ensolarados. No entanto, novas tecnologias estão permitindo uma geração mais estável, mesmo em dias nublados.</li>
+              <li><strong>Cálculo de Irradiância:</strong> A calculadora leva em conta a irradiância solar, que é a medida da energia solar recebida em um determinado local e é crucial para estimar a produção de energia dos painéis.</li>
+              <li><strong>Investimento Inicial:</strong> É fundamental que usuários considerem o custo inicial e a economia a longo prazo que a energia solar pode proporcionar. Com os preços de instalação em queda, muitos usuários conseguem retornar o investimento dentro de poucos anos.</li>
+              <li><strong>Sustentabilidade:</strong> A energia solar é uma forma limpa e sustentável de gerar eletricidade, contribuindo para a redução das emissões de carbono. Investir em energia solar também incentiva a inovação e o desenvolvimento de tecnologias verdes.</li>
+              <li><strong>Acessibilidade:</strong> Com o avanço da tecnologia, as ferramentas de cálculo e os sistemas fotovoltaicos estão se tornando cada vez mais acessíveis ao público em geral. Além disso, muitas políticas governamentais incentivam a adoção da energia solar por meio de subsídios e incentivos fiscais.</li>
+          </ul>
+      
+          <p>Ao utilizar a calculadora de energia solar, os usuários não só estimam a energia que seus painéis podem gerar, como também compreendem sua importância na busca por um futuro mais sustentável.</p>
+          <hr>
+          <br><br>
+          <h2>Calculadora de Emergia</h2>
+
+          <h3>Cálculo da Eficiência dos Painéis Solares</h3><br>
+          <p>A fórmula para calcular a eficiência dos painéis solares (<strong>EnergiaGerada</strong>) é:</p>
+          <p><strong>EnergiaGerada = Irradiância × ÁreaPainel × Eficiência × Tempo</strong></p>
+          <p>onde:</p>
+          <p><strong>Irradiância = Valor em W/m²</strong> (depende das condições climáticas)<br>
+          <strong>ÁreaPainel = Área do painel solar em m²</strong><br>
+          <strong>Eficiência = Taxa de conversão do painel (ex: 0.15 para 15%)</strong><br>
+          <strong>Tempo = Tempo de exposição ao sol em horas</strong></p><br>
+          
+          <h3>Exemplo de Cálculo</h3><br>
+          <p>Suponha que o usuário tenha um painel solar de 1.6 m² exposto a condições ensolaradas por 5 horas.</p><br>
+          
+          <h4>Dados fornecidos:</h4><br>
+          <ul>
+              <li><strong>Irradiância = 1000</strong> W/m²</li><br>
+              <li><strong>ÁreaPainel = 2</strong> m²</li><br>
+              <li><strong>Eficiência = 0.20</strong> (20% de conversão)</li><br>
+              <li><strong>Tempo = 5</strong> horas</li>
+          </ul><br>
+          
+          <h4>Passo a Passo do Cálculo</h4><br>
+          
+          <strong>Cálculo da Energia Solar Incidente:</strong>
+      </div>    
+          <div class="capa_superior">
+              <img src="./img/Energia-Solar-Incidente.png" alt="Energia solar incidente é calculada com a irradiância e área do painel">
+          </div><br><br>
+          
+          <div class="conteudo-escrito-site">
+              <strong>Cálculo da Energia Elétrica Gerada:</strong>
+          </div>
+          
+          <div class="capa_superior">
+              <img src="./img/Energia-Solar-Gerada.png" alt="A energia gerada é calculada usando a irradiância, área do painel e eficiência">
+          </div><br><br>
+          
+          <div class="capa_superior">
+              <img src="./img/Energia-Solar-Gerada-kWh.png" alt="A energia gerada é calculada usando a irradiância, área do painel e eficiência">
+          </div><br><br>
+          
+          <div class="conteudo-escrito-site">
+              <p>Portanto, ao inserir os dados, a energia elétrica gerada seria de aproximadamente <strong>0.1694 kWh</strong>.</p>
+          
+              <p>Vale ressaltar que a eficiência do painel e a irradiância influenciam diretamente no resultado final. Se, por exemplo, o usuário preencher que o painel opera em dias nublados, a irradiância será reduzida, resultando em uma energia gerada menor.</p>
+              <hr>
+          
+              <h2>Importância da Sustentabilidade</h2>
+              <span class="sub-titulo">
+                  <h4>A análise da eficiência na energia solar</h4>
+              </span><br><br>
+          
+              <p>A eficiência dos painéis solares é crucial para avaliar a viabilidade econômica e ambiental. Este conhecimento ajuda na promoção de práticas sustentáveis e no desenvolvimento de tecnologias que minimizam a pegada de carbono associada à sua produção e uso.</p>
+          
+              <p>Além disso, a implementação de melhorias tecnológicas nos materiais dos painéis pode aumentar a eficiência e contribuir para a redução dos impactos ambientais da indústria solar.</p>
+          
+              <hr>
+          
+              <h2>Desafios e Oportunidades</h2>
+              <span class="sub-titulo">
+                  <h4>O futuro da energia solar</h4>
+              </span><br><br>
+          
+              <p>A adoção de energias renováveis, como a solar, é essencial para reduzir as emissões de carbono. É fundamental que as empresas invistam em pesquisa e desenvolvimento para melhorar a eficiência dos painéis solares e integrar tecnologias sustentáveis em suas operações.</p>
+          
+              <p>Compensar as emissões através de créditos de carbono é uma ferramenta válida, mas a prioridade deve ser a implementação de soluções que reduzam diretamente as emissões, como a eletrificação dos processos e a adoção de uma economia circular.</p>
+          </div>
+  </main>
+  
+  <footer class="text-center" style="background-color: #f4f4f4">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Links -->
+      <section class="mt-5">
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5">
+  
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="../pages/curiosidade_page.html">Curiosidades</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="../pages/contact_page.html">Contato</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="../pages/equipe_page.html">Equipe</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row-->
+      </section>
+      <!-- Section: Links -->
+  
+      <hr class="my-5" />
+  
+      <!-- Section: Text -->
+      <section class="mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <img src="../img/_iconLogo.png" alt="Logo da empresa FFWD" width="35px" style="cursor: pointer;"
+              role="button" onclick="scrollToTop()">
+          </div>
+        </div>
+      </section>
+    </div>
+  
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  
+  <div class="text-center p-3" style="background-color: #b8b8b8">
+    © <span id="currentYear"></span>
+  </div>
+  
+  </footer>
+  </body>
+  
+  <script>
+    // Define a função para exibir o ano atual
+    const displayCurrentYear = () => {
+      const currentYear = new Date().getFullYear();
+      document.getElementById("currentYear").textContent = currentYear;
+    };
+  
+    // Chama a função ao carregar a página
+    window.onload = displayCurrentYear;
+  
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+  </script>
+
+</html>

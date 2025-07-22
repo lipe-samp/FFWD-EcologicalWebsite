@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+p {
+    text-align: justify;
+}
+
+
+/* Estilos específicos para o parágrafo com a classe 'toggle-text' */
+.toggle-text {
+    font-size: 18px;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+    background-color:#f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.calculo-img {
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.505);
+    max-width: 100%;
+}
+
+.toggle-text.show {
+    opacity: 1;
+    max-height: 100%; /* Altura suficiente para o texto */
+}
+
+.toggle-text.hidden {
+    opacity: 0;
+    max-height: 0;
+}
+
+figure {
+    max-width: 100%;
+    width: 500px;
+    border-radius: px;
+}
+
+figure img {
+    max-width: 100%;
+    width: 500px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.conteudo-escrito-site {
+    width: 80%;
+    margin: auto;
+}
+
+footer {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
+}
+
+.sub-titulo {
+    color: rgba(115, 115, 115, 0.715);
+}
+
+.capa_superior img {
+    width: 100%;
+    height: 130px;
+    min-height: 110px;
+    object-fit: cover;
+    object-position: bottom;
+    margin-top: 30px
+}
+
+.tabela {
+    text-align: center;
+    
+}
+
+.diminuir-tabela {
+    max-width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    font-size: small;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.comentarios_pequenos {
+    font-size: x-small;
+}
+
+
+
+
+
+
+
+/* Media ****************************************************************************************************************8*/
+
+/* XX-Large devices */
+@media (max-width: 1400px) {}
+
+/* X-Large devices */
+@media (max-width: 1200px) {}
+
+/* Large devices */
+@media (max-width: 992px) {}
+
+/* Medium devices */
+@media (max-width: 768px) {}
+
+/* Small devices */
+@media (max-width: 576px) {}

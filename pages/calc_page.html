@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de CO₂</title>
+  <link rel="shortcut icon" type="imagex/png" href="img/_iconLogo.png">
+  <link rel="stylesheet" href="css_other_pages/style_page_calc.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+
+<body>
+  <header class="navbar fixed-top navbar-light bg-light navegacao">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link"><img src="../img/logo_atualizado.png" alt="Logo da empresa FFWD" height="30px" style="cursor: pointer;"
+              role="button" onclick="scrollToTop()"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./informative_page.html">Informativo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./emergia_page.html">Emergia</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="../pages/calc_page.html">Calculadora CO₂ <span class="sr-only">(Página atual)</span></a>
+              <a class="dropdown-item" href="../pages/curiosidade_page.html">Curiosidades</a>
+              <a class="dropdown-item" href="../pages/equipe_page.html">Equipe</a>
+              <a class="dropdown-item" href="../pages/contact_page.html">Contato</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </li class="nav-item">
+    <a class="nav-link" class="dropdown-menu" style="font-size: 16px;" href="../index.html"><img src="img/FFWD.png" alt="Logo da empresa FFWD"
+        width="140px"></a>
+    </li>
+  </header>
+  
+  <main>
+    <br><br>
+
+    <div class="capa_superior">
+      <img src="img/capa-calculadora.png" class="" alt="...">
+    </div><br>
+
+    <div class="conteudo-escrito-site">
+      <h2>Vamos Calcular!</h2>
+      <span class="sub-titulo">
+        <h4>Abaixo teremos a calculora de pegada de carbono de veículos</h4>
+      </span><br>
+    </div>
+
+    <div class="container_calc">
+      <h2 class="text-center">Calculadora CO₂</h2>
+      <br>
+      <div id="transportes">
+        <div class="transporte-container">
+          <label for="tipoVeiculo">Tipo de Veículo</label>
+          <select id="tipoVeiculo" onchange="exibirCampoPassageiros()">
+            <option value="" disabled selected>Selecione o veículo</option>
+            <option value="carro">Carro</option>
+            <option value="moto">Moto</option>
+            <option value="onibus">Ônibus</option>
+            <option value="aviao">Avião</option>
+          </select>
+
+          <label for="distancia">Distância (km)</label>
+          <input type="number" id="distancia" placeholder="Distância (km)" required>
+
+
+          <label for="combustivel">Combustível</label>
+          <select id="combustivel">
+            <option value="" disabled selected>Selecione o combustível</option>
+            <option value="gasolina">Gasolina</option>
+            <option value="etanol">Etanol</option>
+            <option value="diesel">Diesel</option>
+            <option value="gas_natural">Gás Natural</option>
+            <option value="querosene_aviacao">Querosene de Aviação</option>
+            <option value="hibrido">Híbrido</option>
+          </select>
+
+          <!-- Campo para número de passageiros -->
+          <div id="campoPassageiros">
+            <label for="passageiros">Número de passageiros</label>
+            <input type="number" id="passageiros" placeholder="Número de passageiros" min="1">
+            <p id="passageirosInfo" class="comentarios_pequenos" style="display:none;"></p>
+            <!-- Mensagem para ônibus e avião -->
+          </div>
+
+          <label for="diasPorMes">Quantas vezes ao mês você faz esse percurso?</label>
+          <input type="number" id="diasPorMes" placeholder="Número de vezes ao mês" required>
+        </div>
+        </div><br>
+        <div class="resultado-calculo-carbono">
+          <img src="./img/poluicao_icon.png" width="70px" alt="">
+          <button type="button" class="botao_calc btn btn-warning" onclick="calcularPegada()">Calcular Pegada de
+            Carbono</button>
+            <p class="comentarios_pequenos"> <strong>Atenção:</strong> Não deixe campos vazios.</p>
+          <br>
+          <div class="resultado-calculo">
+            <h2 id="resultado">
+              <div class="loader"></div>
+            </h2>
+          </div>
+        </div><br>
+        <div class="resultado-calculo-arvore">
+          <div>
+            <img src="./img/tree_icon.png" alt="">
+            <button type="button" class="botao_calc btn btn-success" onclick="calcularArvore()">Árvores
+              Necessárias</button>
+              <p class="comentarios_pequenos">A cada tonelada de CO₂ emitidos, são necessárias <strong>7 árvores</strong> nos seus primeiros <strong>20 anos de idade</strong> para compensar.<br><i>Fonte: <a href="https://www.ibflorestas.org.br/conteudo/compensacao-de-co2#:~:text=A%20cada%207%20%C3%A1rvores%2C%20%C3%A9,de%20Efeito%20Estufa%20(GEE).">Instituto Brasileiro de Florestas</a> atualizado em 18/10/2024</i></p>
+              <br>
+            <div class="resultado-calculo">
+              <h2 id="resultado-arvores-grande">
+                <div class="loader"></div>
+              </h2>
+              <h4 id="resultado-arvores"></h4>
+            </div>
+          </div>
+        </div><br>
+        <div class="resultado-calculo-credito">
+          <div>
+            <img src="./img/coin_icon.png" width="70px" alt="">
+            <button type="button" class="botao_calc btn btn-primary" onclick="calcularCredito()">Créditos de Carbono Necessários</button>
+              <p class="comentarios_pequenos">A cada tonelada de CO₂ emitidos, é necessário <strong>1</strong> crédito de carbono para compensar, custando <strong>R$ 53,80</strong> cada.<br><i>Fonte: <a href="https://credcarbo.com/comprar">CredCarbon</a> atualizado em 18/10/2024</i></p>
+              <br>
+            <div class="resultado-calculo">
+              <h2 id="resultado-credito-grande">
+                <div class="loader"></div>
+              </h2><br>
+              <h4 id="resultado-credito"></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <script src="script/script_calc.js"></script>
+      <script src="script/script_arvore_credito.js"></script>
+
+    <br>
+    <div class="centralizar_botao">
+      <div>
+        <img src="./img/question.png" alt="" width="50px"><br><br>
+        <a href="curiosidade_page.html"><button type="button" class="btn btn-warning">Como esse calculo é
+            feito?</button></a>
+      </div>
+    </div><br>
+
+    <div class="conteudo-escrito-site">
+
+      <h2>Calculadora de Carbono</h2>
+      <span class="sub-titulo">
+        <h4>Afinal, qual é o seu propósito?</h4>
+      </span><br>
+
+      <p>Uma calculadora de carbono é uma ferramenta projetada para estimar a quantidade de dióxido de carbono (CO₂)
+        emitida por um indivíduo, organização ou atividade específica. Ela leva em consideração diversas atividades
+        diárias, como o uso de eletricidade, transporte, consumo de alimentos e a produção de resíduos. O objetivo é
+        conscientizar os usuários sobre o impacto de suas ações no meio ambiente e incentivá-los a reduzir sua pegada de
+        carbono.</p>
+
+      <p>Os resultados gerados pela calculadora são geralmente expressos em toneladas de CO₂ equivalentes, que é uma
+        medida usada para comparar as emissões de diferentes gases de efeito estufa com base no seu potencial de
+        aquecimento global. Ao fornecer essa estimativa, as calculadoras ajudam os indivíduos e empresas a identificar as
+        áreas em que podem fazer mudanças para reduzir suas emissões.</p>
+
+      <p>Além de educar e conscientizar, essas ferramentas são cada vez mais utilizadas por empresas que buscam rastrear
+        suas emissões e desenvolver estratégias de aliviar altas emissões, alinhando-se às metas globais de redução de
+        carbono. A implementação dessas ferramentas se tornou um passo importante na transição para uma economia de baixo
+        carbono.</p>
+
+      <p>A calculadora também serve como uma ferramenta para entender como as emissões de carbono podem ser compensadas
+        através do sistema de créditos de carbono. Quando a calculadora fornece o resultado das emissões em toneladas de
+        CO₂, os indivíduos e empresas podem buscar a compensação através da compra de créditos de carbono, que representam
+        a remoção ou a redução de uma tonelada de dióxido de carbono da atmosfera. Essa prática permite que aqueles que
+        não podem reduzir completamente suas emissões neutralizem o impacto ambiental, incentivando a sustentabilidade.
+      </p>
+
+      <p>Com base em pesquisas online, construímos uma tabela comparativa com diversas calculadoras de pegada de carbono,
+        apontamos quais foram os quesitos que consideramos de maior relevância que uma calculadora de CO₂ deveria possuir.
+      </p>
+
+    </div>
+
+    <div class="diminuir-tabela">
+      <br>
+      <div class="titulo">
+        <h4 class="text-center">Comparação de calculadoras de CO₂</h4>
+      </div><br>
+
+      <div class="tabela container table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"><a class="btn btn-dark">Requisitos</a></th>
+              <th scope="col"><a class="btn btn-outline-warning"
+                  href="https://co2.myclimate.org/en/calculate_emissions">My Climate</a></th>
+              <th scope="col"><a class="btn btn-outline-warning"
+                  href="https://www.footprintcalculator.org/home/en">Footprint</a></th>
+              <th scope="col"><a class="btn btn-outline-warning" href="https://calculator.moss.earth/">Moss</a></th>
+              <th scope="col"><a class="btn btn-outline-warning"
+                  href="https://iniciativaverde.org.br/calculadora">Iniciativa
+                  Verde</a></th>
+              <th scope="col"><a class="btn btn-outline-warning"
+                  href="https://www.sosma.org.br/calcule-sua-emissao-de-co2">SOS Mata Atlântica</a></th>
+              <th scope="col"><a class="btn btn-outline-warning"
+                  href="https://compensa.eco/calculadora/empresas/">Compensa</a></th>
+              <th scope="col"><a class="btn btn-outline-warning"
+                  href="https://www.biofilica.com.br/calculadora-de-carbono-biofilica/">Biolífica</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Gratuito</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Pegada de CO₂ Pessoal</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Para Empresa</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Consumo Energia</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Transporte Púb.</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Transporte Priv.</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Transporte Áereo</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Transporte Marítimo</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Consumo de Carne</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Gastos de Roupas</th>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálulo de Resíduos</th>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Cálculo Gastos de Técnologia</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+              <td><img src="./img/wrong.png" alt="Icone errado" width="25px"></td>
+            </tr>
+            <tr>
+              <th scope="row">Compensar CO₂</th>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+              <td><img src="./img/correct.png" alt="Icone correto" width="25px"></td>
+            </tr>
+          </tbody>
+          <caption>
+            <p class="comentarios_pequenos">Essa tabela foi desenvolvida com base em critérios considerados de
+              <strong>maior
+                importância</strong> em uma calculadora de CO₂.
+            </p>
+          </caption>
+        </table>
+      </div>
+    </div>
+
+    <div class="conteudo-escrito-site">
+
+      <p>A primeira coluna está presente os fatores comparativos que consideramos de maior importância em uma calculadora
+        de carbono. O primeiro quesito é a gratuidade, pois permite o acesso a qualquer usuário em web, sem a necessidade
+        de fazer algum pagamento, apesar de estar na última linha, o último quesito é o de grande relevância, pois é onde
+        que permite compensar a emissão de CO₂ a partir da compra de Créditos de Carbono.</p>
+
+    </div>
+
+    <br>
+    <div class="centralizar_botao">
+      <div>
+        <img src="img/question.png" alt="" width="50px"><br><br>
+        <a href="curiosidade_page.html"><button type="button" class="btn btn-warning">O que significa compensar
+            CO₂?</button></a>
+      </div>
+    </div><br>
+  </main>
+  
+  <footer class="text-center" style="background-color: #f4f4f4">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Links -->
+      <section class="mt-5">
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5">
+  
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="../pages/curiosidade_page.html">Curiosidades</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="../pages/contact_page.html">Contato</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="../pages/equipe_page.html">Equipe</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row-->
+      </section>
+      <!-- Section: Links -->
+  
+      <hr class="my-5" />
+  
+      <!-- Section: Text -->
+      <section class="mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <img src="../img/_iconLogo.png" alt="Logo da empresa FFWD" width="35px" style="cursor: pointer;"
+              role="button" onclick="scrollToTop()">
+          </div>
+        </div>
+      </section>
+    </div>
+  
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  
+    <div class="text-center p-3" style="background-color: #b8b8b8">
+      © <span id="currentYear"></span>
+    </div>
+
+  </footer>
+</body>
+
+<script>
+// Define a função para exibir o ano atual
+const displayCurrentYear = () => {
+const currentYear = new Date().getFullYear();
+document.getElementById("currentYear").textContent = currentYear;
+};
+
+// Chama a função ao carregar a página
+window.onload = displayCurrentYear;
+
+const scrollToTop = () => {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+};
+</script>
+
+</html>
